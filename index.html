@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>بيان صرف</title>
+</head>
+
+<body>
+<div class="home">
+      <div class="container ">
+        <div class="row gy-3">
+            <div class="col-md-12 text-center mb-5">
+                <h1>انشاء فاتورة صرف </h1>
+            </div>
+            <div class="col-md-3">
+                <label for="">الاسم :</label>
+                <input type="text" class="form-control" id="driverName">
+            </div>
+            <div class="col-md-3">
+                <label for="">العنوان :</label>
+                <input type="text" class="form-control" id="driverAddress">
+            </div>
+            <div class="col-md-3">
+                <label for="">رقم السياره :</label>
+                <input type="number" class="form-control" id="carNumber">
+            </div>
+            <div class="col-md-3">
+                <label for="">رقم المقطوره :</label>
+                <input type="number" class="form-control" id="tractorNumber">
+            </div>
+            <div class="col-md-3">
+                <label for="">التاريخ : </label>
+                <input type="text" class="form-control" id="carryDate">
+            </div>
+            <div class="col-md-3">
+                <label for="">رقم البوليصه </label>
+                <input type="number" class="form-control" id="invoiceNumber">
+            </div>
+            <div class="col-md-3">
+                <label for="">الوزن : </label>
+                <input type="number" onkeyup="getValue()" class="form-control" id="weight">
+            </div>
+            <div class="col-md-3">
+                <label for="">النولون : </label>
+                <input type="number" onkeyup="getValue()" class="form-control" id="price">
+            </div>
+            <div class="col-md-3">
+                <label for="">عهده : </label>
+                <input type="number" onkeyup="getValue()" class="form-control" id="custody">
+            </div>
+            <div class="col-md-3">
+                <label for="">مكتب : </label>
+                <input type="number" onkeyup="getValue()" class="form-control" id="office">
+            </div>
+            <div class="col-md-3">
+                <label for="">الميزان : </label>
+                <input type="number" onkeyup="getValue()" class="form-control" id="scale">
+            </div>
+            <div class="col-md-3">
+                <label for="">عموله : </label>
+                <input type="number" onkeyup="getValue()" class="form-control" id="commission">
+            </div>
+            <div class="col-md-3">
+                <label for="">خصم : </label>
+                <input type="number" onkeyup="getValue()" class="form-control" id="discount">
+            </div>
+            <div class="col-md-3">
+                <label for="">اضافه : </label>
+                <input type="number" onkeyup="getValue()" class="form-control" id="addition">
+            </div>
+            <div class="col-md-3">
+                <label for="">صافى : </label>
+                <div id="netRevenue"></div>
+            </div>
+            <div class="col-md-3 ">
+                <label for="">بيان : </label>
+                <input type="text"  class="form-control" id="report">
+            </div>
+    
+    
+    
+            <div class="col-md-12 justify-content-center d-flex">
+              <a href="#output"><button onclick="addInvoice()" class="btn-primary form-control receiptButton">عمل فاتوره </button></a>  
+            </div>
+    
+        </div>
+    </div>
+</div>
+  
+   <div class="output">
+   <div class="container-fluid pb-5 vh-100" id="output">
+        <div class="row align-items-center mb-5">
+            
+            <div class="col-md-3 d-flex justify-content-center text-end">
+                <img src="images/heavy-truck-illustration-with-solid-color_232942-38.webp" alt="">
+            </div>
+            <div class="col-md-6  d-flex justify-content-center">
+                <h1 class="fs-1 fw-bolder">بيـــــــان صــــــــرف بـوالص</h1>
+            </div>
+            <div class="col-md-3  text-start d-flex justify-content-center ">
+                <p id="myDate"></p>
+            </div>
+
+        </div>
+       <div class="row">
+        <div class="col-md-6 mb-5">
+            <h4 id="name"> </h4>
+        </div>
+        <div class="col-md-6 mb-5">
+            <h4 id="address"> </h4>
+        </div>
+        <div class="col-md-4">
+            <h5 id="carrNumber"> </h5>
+        </div>
+        <div class="col-md-4">
+            <h5 id="trailerNumber"> </h5>
+        </div>
+        <div class="col-md-4">
+            <h5 id serial></h5>
+        </div>
+        <div class="col-md-12">
+            <table>
+                <thead>
+                    <tr>
+                        <th>م</th>
+                        <th>التاريخ</th>
+                        <th>رقم البوليصه</th>
+                        <th>الوزن</th>
+                        <th>النولون</th>
+                        <th>عهده</th>
+                        <th>مكتب</th>
+                        <th>الميزان</th>
+                        <th>عموله</th>
+                        <th>خصم</th>
+                        <th>اضافه</th>
+                        <th>صافى</th>
+                        <th>بيان</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+        
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>الاجمالى</td>
+                        <td colspan="12" id="total"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+       </div>
+     
+
+    </div>
+   </div>
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/main.js"></script>
+</body>
+
+</html>
